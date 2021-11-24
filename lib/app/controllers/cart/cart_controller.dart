@@ -91,7 +91,6 @@ class CartController extends GetxController {
     Future.delayed(const Duration(seconds: 1));
     var coupons = CouponData.couponList;
     couponCodes.addAll(coupons);
-    print(couponCodes.length);
   }
 
   verifyCoupon(String code) {
