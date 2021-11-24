@@ -3,11 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:invoice/constants/strings.dart';
-import 'package:invoice/controllers/cart/cart_controller.dart';
-import 'package:invoice/controllers/home/home_controller.dart';
-import 'package:invoice/models/product.dart';
-import 'package:invoice/views/home/widgets/home_page_bottom_card.dart';
+import 'package:invoice/app/controllers/cart/cart_controller.dart';
+import 'package:invoice/app/controllers/home/home_controller.dart';
+import 'package:invoice/app/data/constants/color_palette.dart';
+import 'package:invoice/app/data/constants/strings.dart';
+import 'package:invoice/app/models/product.dart';
+import 'package:invoice/app/views/home/widgets/home_page_bottom_card.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);
@@ -21,23 +22,23 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.teal,
+        backgroundColor: primaryColor,
         title: Text('Pdf Invoice with shopping cart'),
         actions: [
           MaterialButton(
             onPressed: () {},
             child: Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.shopping_cart,
-                  color: Colors.white,
+                  color: whiteColor,
                   size: 25,
                 ),
                 Obx(
                   () => Text(
                     '${cartController.getTotalItemOnCart}',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: whiteColor,
                       fontSize: 20,
                     ),
                   ),
@@ -68,7 +69,7 @@ class HomeView extends StatelessWidget {
                                   color: Colors.grey[350]!,
                                 ),
                                 borderRadius: BorderRadius.circular(15),
-                                color: Colors.white,
+                                color: whiteColor,
                               ),
                               child: Column(
                                 children: [
@@ -80,10 +81,13 @@ class HomeView extends StatelessWidget {
                                         topLeft: Radius.circular(15),
                                         topRight: Radius.circular(15),
                                       ),
-                                      color: Colors.white,
+                                      color: whiteColor,
                                       image: DecorationImage(
-                                        image: NetworkImage(
-                                            AppString.defaultProductImage),
+                                        // image: NetworkImage(
+                                        //   AppString.defaultProductImage,
+                                        // ),
+                                        image: AssetImage(
+                                            AppString.DEFAULT_ASSET_IMG),
                                         fit: BoxFit.fill,
                                       ),
                                     ),
@@ -125,13 +129,13 @@ class HomeView extends StatelessWidget {
                                             Text(
                                               '\$${product.price}',
                                               style: TextStyle(
-                                                color: Colors.teal,
+                                                color: primaryColor,
                                                 fontSize: 20,
                                               ),
                                             ),
                                             SizedBox(width: 10),
                                             MaterialButton(
-                                              color: Colors.teal,
+                                              color: primaryColor,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(15),
@@ -141,16 +145,16 @@ class HomeView extends StatelessWidget {
                                                     .addToCart(product);
                                               },
                                               child: Row(
-                                                children: const [
+                                                children: [
                                                   Icon(
                                                     Icons.shopping_cart,
-                                                    color: Colors.white,
+                                                    color: whiteColor,
                                                   ),
                                                   Text(
                                                     'Add to Cart',
                                                     style: TextStyle(
                                                       fontSize: 16,
-                                                      color: Colors.white,
+                                                      color: whiteColor,
                                                     ),
                                                   ),
                                                 ],

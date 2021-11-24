@@ -7,7 +7,7 @@ class CheckoutView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Checkout Page'),
+        title: const Text('Checkout Page'),
         backgroundColor: Colors.teal,
         elevation: 0,
       ),

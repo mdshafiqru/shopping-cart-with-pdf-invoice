@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:invoice/constants/api_strings.dart';
-import 'package:invoice/models/product.dart';
 import 'package:http/http.dart' as http;
+import 'package:invoice/app/data/constants/api_strings.dart';
+import 'package:invoice/app/models/product.dart';
 
 class HomeService {
   Future<List<Product>> getProducts() async {

@@ -8,4 +8,6 @@ class AppString {
   static const SERVER_ERROR = 'Server Error';
   static const UN_AUTHORIZED = 'Unauthorized';
   static const SOMETHING_WENT_WRONG = 'Something went wrong, try again!';
+
+  static const DEFAULT_ASSET_IMG = "assets/images/default.jpg";
 }

@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:invoice/controllers/cart/cart_controller.dart';
-import 'package:invoice/views/cart/cart_view.dart';
+import 'package:invoice/app/controllers/cart/cart_controller.dart';
+import 'package:invoice/app/views/cart/cart_view.dart';
 
 class HomePageBottomCard extends StatelessWidget {
   const HomePageBottomCard({

@@ -1,10 +1,15 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:invoice/models/product.dart';
+import 'package:invoice/app/data/coupon_codes.dart';
+import 'package:invoice/app/models/coupon_code.dart';
+import 'package:invoice/app/models/product.dart';
 
 class CartController extends GetxController {
   var cartItems = <Product>[].obs;
   var uniqueCartItems = <Product>[].obs;
+  var couponCodes = <CouponCode>[].obs;
 
   addToCart(Product product) {
     cartItems.add(product);
@@ -80,5 +85,27 @@ class CartController extends GetxController {
       }
     }
     return singleProducts.length;
+  }
+
+  getCouponCodes() async {
+    Future.delayed(const Duration(seconds: 1));
+    var coupons = CouponData.couponList;
+    couponCodes.addAll(coupons);
+    print(couponCodes.length);
+  }
+
+  verifyCoupon(String code) {
+    var response = {"expired": false, "isInValid": false};
+    for (var item in couponCodes) {
+      if (item.code != code) {
+        response['isInValid'] = true;
+      }
+    }
+  }
+
+  @override
+  void onInit() {
+    getCouponCodes();
+    super.onInit();
   }
 }

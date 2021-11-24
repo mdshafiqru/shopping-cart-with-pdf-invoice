@@ -1,12 +1,10 @@
 // ignore_for_file: unnecessary_overrides
 
 import 'package:get/get.dart';
-import 'package:invoice/models/api_response.dart';
-import 'package:invoice/models/product.dart';
-import 'package:invoice/services/home_service.dart';
+import 'package:invoice/app/services/home_service.dart';
 
 class HomeController extends GetxController {
-  var productsList = <Product>[].obs;
+  var productsList = [].obs;
   HomeService homeService = HomeService();
 
   getProducts() async {
