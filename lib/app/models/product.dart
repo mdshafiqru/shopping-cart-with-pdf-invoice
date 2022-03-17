@@ -28,6 +28,7 @@ class Product {
 
     price = json['price'];
     discount = json['discount'];
+    // var name = ;
   }
 
   Map<String, dynamic> toJson() {

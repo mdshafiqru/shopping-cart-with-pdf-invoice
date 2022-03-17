@@ -59,8 +59,8 @@ class CartController extends GetxController {
 
   double get getTotalPrice => cartItems.fold(
         0,
-        (previousValue, element) =>
-            previousValue + int.parse(element.price!).toDouble(),
+        (previousValue, product) =>
+            previousValue + int.parse(product.price!).toDouble(),
       );
   double getSingleProductTotalPrice(Product product) {
     List<Product> singleProducts = [];
